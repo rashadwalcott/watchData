@@ -10,7 +10,7 @@ export class WatchData {
       if (nDays[data].additionalSteps >= 0)
         minSteps.push(nDays[data].additionalSteps);
     }
-    return console.log(Math.min(...minSteps));
+    return Math.min(...minSteps);
   }
 
   maxNumOfSteps(nDays) {
@@ -21,19 +21,19 @@ export class WatchData {
         maxSteps.push(nDays[data].additionalSteps);
     }
 
-    return console.log(Math.max(...maxSteps));
+    return Math.max(...maxSteps);
   }
 
   avgNumOfSteps(nDays) {
     if (nDays.length <= 1) throw new Error("You worked out less than 1 day");
     let stepArray = [];
     for (let data in nDays) {
-      if (nDays[data].additionalSteps >= 0)
-        stepArray.push(nDays[data].additionalSteps);
+      if (nDays[data].additionalSteps >= 0);
+      stepArray.push(nDays[data].additionalSteps);
     }
 
     const avgSteps = stepArray.reduce((a, b) => a + b, 0) / stepArray.length;
-    return console.log(Math.floor(avgSteps));
+    return Math.floor(avgSteps);
   }
 
   avgRestingRate(nDays) {
@@ -45,7 +45,7 @@ export class WatchData {
     }
 
     const avgHeartRate = heartArr.reduce((a, b) => a + b, 0) / heartArr.length;
-    return console.log(Math.floor(avgHeartRate));
+    return Math.floor(avgHeartRate);
   }
 
   avgNumOfWorkoutCalories(nDays, workoutType) {
@@ -59,6 +59,6 @@ export class WatchData {
     }
     const avgCaloriesBurned =
       workoutArr.reduce((a, b) => a + b, 0) / workoutArr.length;
-    return console.log(Math.floor(avgCaloriesBurned));
+    return Math.floor(avgCaloriesBurned);
   }
 }

@@ -4,11 +4,18 @@ import { WatchData } from "./watchData.js";
 import { allData } from "./allData.js";
 
 const watch = new WatchData();
-console.log("average steps");
-watch.avgNumOfSteps(allData);
-console.log("min steps");
-watch.minNumOfSteps(allData);
-console.log("max steps");
-watch.maxNumOfSteps(allData);
-console.log("avg workout calories");
-watch.avgNumOfWorkoutCalories(allData, "lifting");
+
+console.log("Minimum steps");
+console.log(watch.minNumOfSteps(allData));
+
+console.log("Maximum steps");
+console.log(watch.maxNumOfSteps(allData));
+
+console.log("Average Steps");
+console.log(watch.avgNumOfSteps(allData));
+
+console.log("Average Resting heart rate");
+console.log(watch.avgRestingRate(allData));
+
+console.log("Average Workout calories");
+console.log(watch.avgNumOfWorkoutCalories(allData, "lifting"));
