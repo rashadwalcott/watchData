@@ -23,7 +23,7 @@ export class WatchData {
       formatStartDate.setDate(formatStartDate.getDate() + 1);
     }
     dates = [...dates, formatEndDate];
-    console.log(dates);
+    // console.log(dates);
     if (dates.length <= 1) throw new Error("You must enter more than one day");
     // This is bringing me back data from a single Date
     for (let step in stepData) {
