@@ -26,6 +26,9 @@ const steps = new Steps(newData);
 //NEW RETRY CODE
 // console.log(watch);
 console.log(watch.getMinSteps("09 19 2020", "09 21 2020"));
-// console.log(watch.getMaxSteps("09 19 2020", "09 21 2020"));
+console.log(watch.getMaxSteps("09 19 2020", "09 21 2020"));
+console.log(watch.getAvgSteps("09 19 2020", "09 21 2020"));
+console.log(watch.getAvgRestingHeartRate("09 19 2020"));
+
 // console.log(newData);
 // console.log(steps.getMinSteps("09 19 2020", "09 21 2020"));
