@@ -40,6 +40,7 @@ export class WatchData {
     let result = [];
     filteredSteps.reduce(function (groups, value) {
       let date = value.time.toDateString();
+
       if (!groups[date]) {
         groups[date] = { date, totalSteps: 0 };
         result.push(groups[date]);
@@ -50,13 +51,18 @@ export class WatchData {
     // console.log(result);
 
     function getMin() {
-      return result.reduce(
-        (min, steps) => (steps.totalSteps < min ? steps.totalSteps : min),
-        result[0].totalSteps
-      );
+      if (result.length > 1) {
+        let min = result.reduce(
+          (min, steps) => (steps.totalSteps < min ? steps.totalSteps : min),
+          result[0].totalSteps
+        );
+        return `Minimum was ${min} steps for the selected time period`;
+      } else if (result.length === 1)
+        return `You need to compare against more than one day`;
+      else return ` You do not have any data on the selected days`;
     }
 
-    return `Minimum was ${getMin()} steps for the selected time period`;
+    return getMin();
   }
 
   //Come back and figure out if I need a days total
@@ -95,6 +101,7 @@ export class WatchData {
     let result = [];
     filteredSteps.reduce(function (groups, value) {
       let date = value.time.toDateString();
+
       if (!groups[date]) {
         groups[date] = { date, totalSteps: 0 };
         result.push(groups[date]);
@@ -102,16 +109,20 @@ export class WatchData {
       groups[date].totalSteps += value.additionalSteps;
       return groups;
     }, {});
-    // console.log(result);
+    console.log(result);
 
     function getMax() {
-      return result.reduce(
-        (max, steps) => (steps.totalSteps > max ? steps.totalSteps : max),
-        result[0].totalSteps
-      );
+      if (result.length > 1) {
+        let max = result.reduce(
+          (max, steps) => (steps.totalSteps > max ? steps.totalSteps : max),
+          result[0].totalSteps
+        );
+        return `Maximum was ${max} steps for the selected time period`;
+      } else if (result.length === 1)
+        return `You need to compare against more than one day`;
+      else return ` You do not have any data on the selected days`;
     }
-
-    return `Maximum was ${getMax()} steps for the selected time period`;
+    return getMax();
   }
 
   getAvgSteps(startDate, endDate) {
@@ -147,25 +158,36 @@ export class WatchData {
     //
     //This giving the dates grouped together with sum of the steps
     let result = [];
+    // console.log(filteredSteps);
     filteredSteps.reduce(function (groups, value) {
       let date = value.time.toDateString();
+
       if (!groups[date]) {
         groups[date] = { date, totalSteps: 0 };
         result.push(groups[date]);
       }
       groups[date].totalSteps += value.additionalSteps;
+
       return groups;
     }, {});
     // console.log(result);
 
     function getAvg() {
-      return Math.floor(
-        result.reduce((sum, steps) => sum.totalSteps + steps.totalSteps) /
-          result.length
-      );
+      if (result.length > 1) {
+        let total = 0;
+
+        for (let i = 0; i < result.length; i++) {
+          total += result[i].avgSteps;
+        }
+        return `Average steps is ${Math.floor(
+          total / result.length
+        )} for selected time period`;
+      } else if (result.length == 1)
+        return `You need to compare against more than one day`;
+      else return ` You do not have any data on the selected days`;
     }
 
-    return `Average was ${getAvg()} steps for the selected time period`;
+    return getAvg();
   }
 
   getAvgRestingHeartRate(startDate, endDate) {
@@ -217,10 +239,6 @@ export class WatchData {
       groups[date].avgHeartRate =
         groups[date].totalHeartRate / groups[date].count;
 
-      // console.log(value.heartRate);
-      // groups[date].push(value.heartRate);
-      // groups[date].heartRate.length;
-
       return groups;
     }, {});
 
@@ -232,20 +250,29 @@ export class WatchData {
         for (let i = 0; i < result.length; i++) {
           total += result[i].avgHeartRate;
         }
-        return Math.floor(total / result.length);
+        return `Average heart rate is ${Math.floor(
+          total / result.length
+        )} for selected time period`;
         // return Math.floor(
         //   result.reduce((sum, heart) => sum.avgHeartRate + heart.avgHeartRate) /
         //     result.length
         // );
-      } else {
+      } else if (result.length === 1) {
         for (let heart in result) {
-          return Math.floor(result[heart].avgHeartRate);
+          return `Average heart rate is ${Math.floor(
+            result[heart].avgHeartRate
+          )} for selected time period`;
         }
+      } else {
+        return `You do not have any data on the selected days`;
       }
     }
+    return getAvg();
     // console.log(result);
+  }
 
-    return `Average heart rate is ${getAvg()} for selected time period`;
+  getavgWorkoutCal() {
+    console.log("Workout Calories");
   }
 
   // minNumOfSteps(nDays) {

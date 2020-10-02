@@ -25,10 +25,13 @@ const steps = new Steps(newData);
 
 //NEW RETRY CODE
 // console.log(watch);
-console.log(watch.getMinSteps("09 19 2020", "09 21 2020"));
-console.log(watch.getMaxSteps("09 19 2020", "09 21 2020"));
-console.log(watch.getAvgSteps("09 19 2020", "09 21 2020"));
-console.log(watch.getAvgRestingHeartRate("09 19 2020"));
+// console.log(watch.getMinSteps("09 19 2020", "09 21 2020"));
+// console.log(watch.getMaxSteps("09 19 2020", "09 22 2020"));
+// console.log(watch.getAvgSteps("09 17 2020", "09 18 2020"));
+// console.log(watch.getAvgRestingHeartRate("09 18 2020", "09 19 2020"));
+console.log(watch.getavgWorkoutCal());
 
 // console.log(newData);
 // console.log(steps.getMinSteps("09 19 2020", "09 21 2020"));
+
+///LOOOOKKKKK AT THE MIN< MAX AND AVG CODE FOR IF A DATE THAT THERE IS NO DATA FOR IS ENTERED
