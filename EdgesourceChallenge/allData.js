@@ -114,4 +114,31 @@ export const newData = {
     { time: new Date("September 21, 2020 12:09:00"), heartRate: 78 },
     { time: new Date("September 21, 2020 12:10:00"), heartRate: 78 },
   ],
+  //Visual for myself
+  logworkout: [
+    {
+      workoutType: "Bicycling",
+      startTime: new Date("September 27, 2020 12:10:00"),
+      workoutId: "1",
+      endTime: new Date("September 27, 2020 13:00:00"),
+    },
+    {
+      workoutType: "Running",
+      startTime: new Date("September 28, 2020 06:15:00"),
+      workoutId: "2",
+      endTime: new Date("September 28, 2020 06:45:00"),
+    },
+    {
+      workoutType: "Bicycling",
+      startTime: new Date("September 29, 2020 08:00:00"),
+      workoutId: "1",
+      endTime: new Date("September 29, 2020 09:00:00"),
+    },
+    {
+      workoutType: "Running",
+      startTime: new Date("September 30, 2020 14:10:00"),
+      workoutId: "2",
+      endTime: new Date("September 30, 2020 15:10:00"),
+    },
+  ],
 };

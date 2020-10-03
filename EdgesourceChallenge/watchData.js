@@ -109,7 +109,7 @@ export class WatchData {
       groups[date].totalSteps += value.additionalSteps;
       return groups;
     }, {});
-    console.log(result);
+    // console.log(result);
 
     function getMax() {
       if (result.length > 1) {
@@ -177,12 +177,12 @@ export class WatchData {
         let total = 0;
 
         for (let i = 0; i < result.length; i++) {
-          total += result[i].avgSteps;
+          total += result[i].totalSteps;
         }
         return `Average steps is ${Math.floor(
           total / result.length
         )} for selected time period`;
-      } else if (result.length == 1)
+      } else if (result.length === 1)
         return `You need to compare against more than one day`;
       else return ` You do not have any data on the selected days`;
     }
@@ -271,66 +271,9 @@ export class WatchData {
     // console.log(result);
   }
 
-  getavgWorkoutCal() {
-    console.log("Workout Calories");
-  }
+  getavgWorkoutCal(startDate, endDate) {}
+  // console.log(filteredWorkoutData);
 
-  // minNumOfSteps(nDays) {
-  //   if (nDays.length <= 1) throw new Error("You worked out less than 1 day");
-  //   let minSteps = [];
-  //   for (let data in nDays) {
-  //     if (nDays[data].additionalSteps >= 0)
-  //       minSteps.push(nDays[data].additionalSteps);
-  //   }
-  //   return Math.min(...minSteps);
-  // }
-
-  // maxNumOfSteps(nDays) {
-  //   if (nDays.length <= 1) throw new Error("You worked out less than 1 day");
-  //   let maxSteps = [];
-  //   for (let data in nDays) {
-  //     if (nDays[data].additionalSteps >= 0)
-  //       maxSteps.push(nDays[data].additionalSteps);
-  //   }
-
-  //   return Math.max(...maxSteps);
-  // }
-
-  // avgNumOfSteps(nDays) {
-  //   if (nDays.length <= 1) throw new Error("You worked out less than 1 day");
-  //   let stepArray = [];
-  //   for (let data in nDays) {
-  //     if (nDays[data].additionalSteps >= 0);
-  //     stepArray.push(nDays[data].additionalSteps);
-  //   }
-
-  //   const avgSteps = stepArray.reduce((a, b) => a + b, 0) / stepArray.length;
-  //   return Math.floor(avgSteps);
-  // }
-
-  // avgRestingRate(nDays) {
-  //   if (nDays.length < 0)
-  //     throw new Error("There is no heart rate data availble");
-  //   let heartArr = [];
-  //   for (let data in nDays) {
-  //     heartArr.push(nDays[data].heartRate);
-  //   }
-
-  //   const avgHeartRate = heartArr.reduce((a, b) => a + b, 0) / heartArr.length;
-  //   return Math.floor(avgHeartRate);
-  // }
-
-  // avgNumOfWorkoutCalories(nDays, workoutType) {
-  //   if (nDays.length < 0) throw new Error("You have no workout data available");
-  //   let workoutArr = [];
-  //   for (let data in nDays) {
-  //     if (nDays[data].workouts.workoutType === workoutType) {
-  //       if (nDays[data].workouts.additionalCaloriesBurned >= 0)
-  //         workoutArr.push(nDays[data].workouts.additionalCaloriesBurned);
-  //     }
-  //   }
-  //   const avgCaloriesBurned =
-  //     workoutArr.reduce((a, b) => a + b, 0) / workoutArr.length;
-  //   return Math.floor(avgCaloriesBurned);
-  // }
+  // let result = []
+  // filteredWorkoutData.red
 }

@@ -1,7 +1,7 @@
-import { WatchData } from "./watchData.js";
-
-export class Steps extends WatchData {
-  getMinSteps() {
-    super.getMinSteps();
+export class Steps {
+  stepDataRecording(timeNow, stepCount) {
+    let obj = {};
+    obj[timeNow] = stepCount;
+    return obj;
   }
 }
