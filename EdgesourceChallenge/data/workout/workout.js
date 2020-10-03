@@ -1,5 +1,8 @@
+//This is bringing the workout classes together
+
 import { StartWorkout } from "./startworkout.js";
 import { FinishWorkOut } from "./finishworkout.js";
+import { RecordCalories } from "./caloriesData.js";
 
 export class Workout {
   startWorkout(workoutType, startTime) {
@@ -7,7 +10,7 @@ export class Workout {
     let type = startWorkout.getWorkoutType();
     let time = startWorkout.getStartTime();
     let obj = {};
-    obj["time"] = time;
+    obj["startTime"] = time;
     obj["type"] = type;
     return obj;
   }
@@ -17,6 +20,14 @@ export class Workout {
     let obj = {};
     obj["End Time"] = finishWorkout.getEndTime();
     obj["Work Out ID"] = finishWorkout.getWorkOutID();
+    return obj;
+  }
+
+  getCalories(timeNow, calories) {
+    let caloriesRecording = new RecordCalories(timeNow, calories);
+    let obj = {};
+    obj["time"] = caloriesRecording.getTime();
+    obj["additionalCaloriesBurned"] = caloriesRecording.getCaloriesBurned();
     return obj;
   }
 }

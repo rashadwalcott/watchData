@@ -1,3 +1,5 @@
+// This is recording when the workout starts
+
 export class StartWorkout {
   constructor(workoutType, startTime) {
     this.workoutType = workoutType;

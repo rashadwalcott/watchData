@@ -1,3 +1,5 @@
+// This is recording when the workout is finished
+
 export class FinishWorkOut {
   constructor(workOutID, endTime) {
     this.workOutID = workOutID;
